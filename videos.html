@@ -17,20 +17,32 @@
 		
 	</header>
 	<nav>
-		
+		<ul>
+			<li><a href="index.html">Index</a></li>
+			<li><a href="audios.html">Audios</a></li>
+			<li><a href="videos.html">Videos</a></li>
+		</ul>
 	</nav>
-	<section style="border: 1px solid black;">
-		<video src="archivos/videos/.pm3" width="320" height="240" controls>
-		  <source src="movie.mp4" type="video/mp4">
-		  <source src="movie.ogg" type="video/ogg">
-			Your browser does not support the video tag.
-		</video>
+	<section>
+			<video id="destino" src="videos/v1.mp4" width="640" height="400" controls>
+			</video>
 	</section>
 	<footer>
+		<video id="v1" src="videos/v1.mp4" width="240" height="126" onclick="Javascript:reproduce(this.src);" >
+		</video>
 		
+		<video id="v2" src="videos/v2.mp4" width="240" height="180" onclick="Javascript:reproduce(this.src);" >
+		</video>
+		
+		<video id="v3" src="videos/v3.mp4" width="240" height="126" onclick="Javascript:reproduce(this.src);" >
+		</video>
 	</footer>
 </body>
 <script type="text/javascript">
-	
+	function reproduce(videoSeleccionado){
+		destino = document.getElementById("destino");
+		destino.src = videoSeleccionado;
+		console.log(destino);
+	}
 </script>
 </html>
