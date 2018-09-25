@@ -1,0 +1,23 @@
+*{
+	box-sizing: border-box;
+}
+/*NAVEGADOR */
+ul {
+
+}
+
+li {
+
+}
+
+li a {
+
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: red;
+}
