@@ -10,7 +10,7 @@
 	<title>Inicio</title>
 	
 	<!--archivos css necesarios -->
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/audios.css">
 
 </head>
 <body>
@@ -18,20 +18,52 @@
 		
 	</header>
 	<nav>
-		
+		<ul>
+			<li><a href="#" name="archivos/audios/Zedd_Ignite_Worlds_2016_League_of_Legends.mp3" id="Zed - Ignite" value="cancion 1">Cancion 1</a></li>
+			<li><a href="#" name="archivos/audios/Nightcore_The_war_is_over.mp3" id="The war is over" value="cancion 2">Cancion 2</li>
+			<li><a href="#" name="archivos/audios/Nightcore_My_Demons.mp3" id="My Demons" value="cancion 3">Cancion 3</li>
+			<li><a href="#" name="archivos/audios/Omar_Varela_Stronger.mp3" id="Stronger" value="cancion 4">Cancion 4</li>
+			<li><a href="#" name="archivos/audios/Nightcore_Mama_Told_Me.mp3" id="Mama told me" value="cancion 5">Cancion 5</li>
+		</ul>
 	</nav>
 	<section style="border: 1px solid black;">
-		<audio src="archivos/audios/.pm3" controls>
-		  <source src="horse.ogg" type="audio/ogg">
-		  <source src="horse.mp3" type="audio/mpeg">
-			Your browser does not support the audio element.
-		</audio>
+		<div>
+			<audio id="audio" controls>
+			  <source id="audioSource" src="" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+			<p id="nombre_cancion"></p>
+			<!--
+			<div>
+			  <button onclick="javascript:document.getElementById('audio').play()">Reproducir</button>
+			  <button onclick="javascript:document.getElementById('audio').pause()">Pausar</button>
+			  <button onclick="javascript:document.getElementById('audio').volume+=0.1">Aumentar el Volumen</button>
+			  <button onclick="javascript:document.getElementById('audio').volume-=0.1">Disminuir el Volumen</button>
+			</div>
+			-->
+		</div>
 	</section>
 	<footer>
 		
 	</footer>
 </body>
 <script type="text/javascript">
+	var elementosLista = document.getElementsByTagName("a");
+	//console.log(elementosLista[0].name+", "+elementosLista[0].id);
+	for (var i = 0; i < elementosLista.length; i++) {
+		elementosLista[i].onclick = function() { seleccionarCancion(this.name,this.id); };
+	}
+	//funcion que le da el src al selector de audio y el nombre
+	function seleccionarCancion (src,nombre) {
+		var audio_tag = document.getElementById("audio");
+		var titulo = document.getElementById("nombre_cancion");
+		var source = document.getElementById('audioSource');
+
+		titulo.innerHTML = nombre;
+  		source.src = src;
+  		audio_tag.load();
+  		audio_tag.play();
+	}
 	
 </script>
 </html>
