@@ -19,24 +19,29 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="#" name="archivos/audios/Zedd_Ignite_Worlds_2016_League_of_Legends.mp3" id="Zed - Ignite" value="cancion 1" onclick="seleccionarCancion(this.name,this.id);">Cancion 1</a></li>
-			<li><a href="#" name="archivos/audios/Nightcore_The_war_is_over.mp3" id="The war is over" value="cancion 2" onclick="seleccionarCancion(this.name,this.id);">Cancion 2</li>
-			<li><a href="#" name="archivos/audios/Nightcore_My_Demons.mp3" id="My Demons" value="cancion 3" onclick="seleccionarCancion(this.name,this.id);">Cancion 3</li>
-			<li><a href="#" name="archivos/audios/Omar_Varela_Stronger.mp3" id="Stronger" value="cancion 4" onclick="seleccionarCancion(this.name,this.id);">Cancion 4</li>
-			<li><a href="#" name="archivos/audios/Nightcore_Mama_Told_Me.mp3" id="Mama told me" value="cancion 5" onclick="seleccionarCancion(this.name,this.id);">Cancion 5</li>
+			<li><a href="#" name="archivos/audios/Zedd_Ignite_Worlds_2016_League_of_Legends.mp3" id="Zed - Ignite" value="cancion 1" 
+				onclick="seleccionarCancion(this.name,this.id);">Zed - Ignite</a></li>
+			<li><a href="#" name="archivos/audios/Nightcore_The_war_is_over.mp3" id="The war is over" value="cancion 2" 
+				onclick="seleccionarCancion(this.name,this.id);">The war is over</a></li>
+			<li><a href="#" name="archivos/audios/Nightcore_My_Demons.mp3" id="My Demons" value="cancion 3" 
+				onclick="seleccionarCancion(this.name,this.id);">My Demons</a></li>
+			<li><a href="#" name="archivos/audios/Omar_Varela_Stronger.mp3" id="Stronger" value="cancion 4" 
+				onclick="seleccionarCancion(this.name,this.id);">Stronger</a></li>
+			<li><a href="#" name="archivos/audios/Nightcore_Mama_Told_Me.mp3" id="Mama told me" value="cancion 5" 
+				onclick="seleccionarCancion(this.name,this.id);">Mama told me</a></li>
 		</ul>
 	</nav>
-	<section style="border: 1px solid black;">
+	<section style="">
 		<div>
-			<audio id="audio" src="" controls="controls" >
-			  <source id="audioSource" src="ejemplo.mp3" type="audio/mpeg">
+			<audio id="audio" controls>
+			  <source id="audioSource" type="audio/mpeg">
 				Your browser does not support the audio element.
 			</audio>
 			<p id="nombre_cancion"></p>
 		</div>
 		<div>
-			  <button onclick="playAudio();">Reproducir</button>
-			  <button onclick="pauseAudio()">Pausar</button>
+			  <button onclick="play();">Reproducir</button>
+			  <button onclick="pause()">Pausar</button>
 		</div>
 	</section>
 	<footer>
@@ -45,27 +50,26 @@
 </body>
 <script type="text/javascript">
 	//funcion que le da el src al selector de audio y el nombre
+	var audio_tag = document.getElementById("audio");
+	var titulo = document.getElementById("nombre_cancion");
+	var source = document.getElementById('audioSource');
 	function seleccionarCancion (src,nombre) {
-		var audio_tag = document.getElementById("audio");
-		var titulo = document.getElementById("nombre_cancion");
-		//var source = document.getElementById('audioSource');
-
 		audio_tag.src=src;
-  		audio_tag.load();
 		titulo.innerHTML = nombre;
-  		//source.src = src;
-  		audio_tag.play();
+  		source.src = src;
 	}
-	/*
-  var x = document.getElementById("audio"); 
-
-	function playAudio() { 
-	    x.play(); 
+	function pause () {
+		const playPromise = audio_tag.play();
+		if (playPromise !== null){
+	    playPromise.catch(() => { audio_tag.play(); })
+		}	
+	}
+	function play() { 
+	    audio_tag.play(); 
 	} 
 
-	function pauseAudio() { 
-	    x.pause(); 
+	function pause() { 
+	    audio_tag.pause(); 
 	} 
-	*/
 </script>
 </html>
