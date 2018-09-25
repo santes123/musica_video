@@ -1,21 +1,29 @@
 *{
 	box-sizing: border-box;
 }
+nav{
+	/*display: flex;*/
+	float: left;
+	width: 20%;
+	border: 1px solid black;
+}
+section{
+	float: left;
+	width: 75%;
+}
 /*NAVEGADOR */
-ul {
-
+ul{
+	list-style: none;
+	margin-left: 5%;
+	margin-right: 22%;
+	text-align: center;
 }
-
-li {
-
+li{
+	margin-top: 30PX;
+	border: 1px solid black;
 }
-
-li a {
-
-}
-
-li a:hover {
-    background-color: #111;
+li:hover {
+    background-color: #42f4a1;
 }
 
 .active {
