@@ -18,10 +18,21 @@
 		
 	</header>
 	<nav>
-		
+		<ul>
+			<li><input type="button" name="archivos/audios/Zedd_Ignite_Worlds_2016_League_of_Legends.pm3" value="1">cancion 1</input></li>
+			<li>cancion 2</li>
+			<li>cancion 3</li>
+			<li>cancion 4</li>
+			<li>cancion 5</li>
+			<input type="button" name="archivos/audios/Zedd_Ignite_Worlds_2016_League_of_Legends.pm3">
+			<input type="button" name="archivos/audios/Nightcore_The_war_is_over.pm3">
+			<input type="button" name="archivos/audios/Nightcore_My_Demons.pm3">
+			<input type="button" name="archivos/audios/Omar_Varela_Stronger.pm3">
+			<input type="button" name="archivos/audios/Nightcore_Mama_Told_Me.pm3">
+		</ul>
 	</nav>
 	<section style="border: 1px solid black;">
-		<audio src="archivos/audios/.pm3" controls>
+		<audio id="audio" src="" controls>
 		  <source src="horse.ogg" type="audio/ogg">
 		  <source src="horse.mp3" type="audio/mpeg">
 			Your browser does not support the audio element.
@@ -32,6 +43,14 @@
 	</footer>
 </body>
 <script type="text/javascript">
-	
+	var elementosLista = document.getElementsByTagName("input");
+	console.log(elementosLista[0].name);
+	for (var i = 0; i < elementosLista.length; i++) {
+		elementosLista[i].onclick = function() { seleccionarCancion(this.name); };
+	}
+	function seleccionarCancion (src) {
+		var audio_tag = document.getElementById("audio");
+		audio_tag.src = src;
+	}
 </script>
 </html>
